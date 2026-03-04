@@ -1,4 +1,20 @@
 ---
 title: "Collaborator Analysis"
 format: html
+author: "Natalia Varela"
 ---
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(here)
+```
+
+## Exercise: Explore, Clean, and Wrangle Data
+
+```{r}
+# reading data file
+lobster_traps <- read_csv("data/Lobster_Trap_Counts_All_Years_20210519.csv")
+```
+

@@ -15,6 +15,6 @@ library(here)
 
 ```{r}
 # reading data file
-lobster_traps <- read_csv("data/Lobster_Trap_Counts_All_Years_20210519.csv")
+lobster_traps <- read_csv("../data/Lobster_Trap_Counts_All_Years_20210519.csv")
 ```
 

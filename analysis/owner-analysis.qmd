@@ -1,4 +1,38 @@
 ---
-title: "Owner Analysis"
+title: Lobster Abundance and Size Analysis"
+author: "Emma"
 format: html
 ---
+
+## Exercise: Explore, Clean, and Wrangle Data
+
+```{r}
+#| warning: false
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(here)
+library(DT)
+```
+
+```{r}
+#| warning: false
+#Read in data
+lobster_abundance <- read_csv("../data/Lobster_Abundance_All_Years_20220829.csv")
+datatable(lobster_abundance)
+```
+
+```{r}
+#Explore Data, High Level Summary
+
+summary(lobster_abundance)
+
+str(lobster_abundance)
+
+colnames(lobster_abundance)
+
+```
+
+
+

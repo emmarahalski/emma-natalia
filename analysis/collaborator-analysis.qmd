@@ -39,22 +39,37 @@ carp_reef_traps <- lobster_traps %>%
   filter(SITE == "CARP" &  TRAPS > 20)
 ```
 
-# Question 4> filter ( ) practice
+# Question 4: filter ( ) practice
 
 ```{r}
-max_comm_trap  <- max(lobster_traps$TRAPS, na.rm = FALSE)
-max_comm_trap
+summarize(TRAPS = max())
 
-comm_trap_float <- lobster_traps %>% 
-  group_by(SITE,MONTH)
+max_comm_trap  <- lobster_traps %>% 
+  group_by(SITE,MONTH) %>% 
+  summarize(count(TRAPS) = max(TRAPS, na.rm = TRUE))
 
-
-# `group_by() %>% summarize()` practice
-
-#max_lobster <- lobster_abundance %>% 
-#  group_by(SITE, MONTH) %>% 
-#  summarize(MAX_LENGTH = max(SIZE_MM, na.rm = TRUE))
 ```
 
+## Exercise: Data Visualization
 
+# Question 5: ggplot- multipanel
+
+```{r}
+Q5   <- ggplot(lobster_traps, aes(x = TRAPS))+
+  geom_histogram()+
+  facet_wrap(~YEAR)
+
+Q5
+```
+# Question 6: Create a line graph of the number of total lobster commercial traps observed (y-axis) by year (x-axis)
+
+```{r}
+lobsters_traps_summ<- lobster_traps %>% 
+  group_by(SITE, YEAR) %>% 
+  summarize(TOTAL_TRAPS = sum(TRAPS, na.rm = TRUE)) #the "sum" function goes in summarize
+
+Q6_line_plot <- ggplot(lobsters_traps_summ, aes(x = YEAR, y = TOTAL_TRAPS))+
+  geom_line()
+Q6_line_plot
+```
 

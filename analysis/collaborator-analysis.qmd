@@ -17,4 +17,37 @@ library(here)
 # reading data file
 lobster_traps <- read_csv("../data/Lobster_Trap_Counts_All_Years_20210519.csv")
 ```
+# Question 1: convert missing values using mutate () and na_if()
+```{r}
+lobster_traps <- lobster_traps %>% 
+  mutate(TRAPS = na_if(TRAPS, -99999))
+
+#To check if the output changed
+unique(lobster_traps$TRAPS)
+```
+
+# Question 2: filter ( ) practice
+```{r}
+lobster_traps_not_NAPL <- lobster_traps %>% 
+  filter(SITE != "NAPL")
+```
+
+# Question 3: filter ( ) practice
+
+```{r}
+carp_reef_traps <- lobster_traps %>% 
+  filter(SITE == "CARP" &  TRAPS > 20)
+```
+
+# Question 4> filter ( ) practice
+
+```{r}
+max_comm_trap  <- max(lobster_traps$TRAPS, na.rm = FALSE)
+max_comm_trap
+
+comm_trap_float <- lobster_traps %>% 
+  group_by(SITE,MONTH)
+```
+
+
 
